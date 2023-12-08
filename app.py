@@ -1,9 +1,15 @@
 from flask import Flask
+from flask_jwt_extended import JWTManager
 from flask_restful import Api
+from config import Config
 
 from resources.user import UserRegisterResource
 
 app = Flask(__name__)
+
+app.config.from_object(Config)
+
+jwt = JWTManager(app)
 
 api = Api(app)
 
