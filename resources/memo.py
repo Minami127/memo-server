@@ -57,7 +57,7 @@ class MemoListResource(Resource) :
                     from memo
                     where userId = %s
                     order by date desc
-                    limit 0,25;''' 
+                    limit '''+ str(offset) +''','''+ str(limit) +''';''' 
 
             record = (user_id, )
 
