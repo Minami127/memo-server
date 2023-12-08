@@ -1,9 +1,10 @@
-from email_validator import EmailNotValidError, validator_email
 from flask import request
 from flask_jwt_extended import create_access_token
 from flask_restful import Resource
 from mysql_connection import get_connection
 from mysql.connector import Error
+
+from email_validator import EmailNotValidError, validate_email
 
 from utils import hash_password
 
@@ -15,7 +16,7 @@ class UserRegisterResource(Resource) :
         data = request.get_json()
 
         try:
-            validator_email(data['email'])
+            validate_email(data['email'])
         except EmailNotValidError as e:
             print(e)
             return{'error' : str(e)}, 400
