@@ -104,4 +104,3 @@ class UserLoginResource(Resource):
         return {"result" : "success",
                 "accessToken" : access_token}, 200
     
-    jwt_blocklist = set()
