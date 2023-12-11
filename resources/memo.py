@@ -143,6 +143,8 @@ class MemoResource(Resource) :
             cursor.close()
             connection.close()
             return {'error' : str(e)} , 500
+        
+        
 
 
         return {'result' : 'success'}, 200
